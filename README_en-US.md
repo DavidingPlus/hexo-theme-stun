@@ -46,6 +46,10 @@ Language: [English](https://github.com/liuyib/hexo-theme-stun/blob/master/README
 - [MikyMing's Blog](https://mikyming.online/)
 - [Gemini's Blog](https://geminiplanet.cn/)
 - [TimeMachine's Blog](https://timemachine.icu/)
+- [Jiangyh's Blog](https://bestjarvan.gitee.io/)
+- [Frank's Blog](https://shufanhao.top/)
+- [Jun's Blog](https://www.jun997.xyz/)
+- [DavidingPlus's Blog](https://blog.davidingplus.cn)
 
 If you plan to use «Stun» theme for a long time and want to show it here, you just need to modify the [README_en-US](https://github.com/liuyib/hexo-theme-stun/edit/master/README_en-US.md) to fill in your website and submit PR.
 
