@@ -8,7 +8,7 @@ $(document).ready(function () {
   var isMenuShow = false
   var isSubmenuShow = false
 
-  function resetMenuHeight () {
+  function resetMenuHeight() {
     $menuItem.velocity(
       {
         height: $menuItem.outerHeight()
@@ -66,16 +66,15 @@ $(document).ready(function () {
     isMenuShow = false
     isSubmenuShow = false
 
-    function getNightMode () {
-      var nightMode = false
-      try {
-        if (parseInt(Stun.utils.Cookies().get(NIGHT_MODE_COOKIES_KEY))) {
-          nightMode = true
+    function updateUtterancesTheme() {
+      var iframe = document.querySelector('iframe.utterances-frame')
+      if (iframe) {
+        var message = {
+          type: 'set-theme',
+          theme: isNightMode ? CONFIG.utterancesTheme.dark : CONFIG.utterancesTheme.light
         }
-      } catch (err) {
-        /* empty */
+        iframe.contentWindow.postMessage(message, 'https://utteranc.es')
       }
-      return nightMode
     }
 
     if (CONFIG.nightMode && CONFIG.nightMode.enable) {
@@ -84,7 +83,7 @@ $(document).ready(function () {
       $nightMode = $('.mode')
       isNightModeFocus = true
 
-      if (getNightMode()) {
+      if (Stun.utils.getNightMode()) {
         $nightMode.addClass('mode--checked')
         $nightMode.addClass('mode--focus')
         $('html').addClass('nightmode')
@@ -100,6 +99,10 @@ $(document).ready(function () {
         $nightMode.toggleClass('mode--checked')
         $nightMode.addClass('mode--focus')
         $('html').toggleClass('nightmode')
+
+        if (CONFIG.utterancesTheme) {
+          updateUtterancesTheme()
+        }
       })
     }
 
